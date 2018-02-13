@@ -26,12 +26,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			div.style.backgroundImage = `url(photos/thumbnails/${img.extension})`;
 			content.append(div);
 		});
+		currentImages = getCurrentImages();
 	}
 
 	function manipulateLightbox (imgExtension) {
 		lightbox.style.display = 'flex';
 		lightboxImg.style.backgroundImage = `url(photos/${imgExtension})`;
-		console.log(imgExtension);
 		textbox.innerHTML = `${imgs[parseInt(imgExtension)-1].description}`;
 	}
 
@@ -59,8 +59,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			currentImages = getCurrentImages();
 			currentIndex = currentImages.indexOf(current);
 		}
-
-		if (direction === 'left') {
+		if(currentImages.length === 1){
+			return 'no images';
+		} else if (direction === 'left') {
 			let previous = currentIndex == 0 ? currentImages.length-1 : currentIndex-1;
 			manipulateLightbox(currentImages[previous]);
 		} else if (direction === 'right') {
@@ -91,11 +92,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 	});
 
 	search.addEventListener("keyup", function(event) {
-		console.log('here');
 		let filtered = Array.from(imgs.filter(function(imgObj){
 			return imgObj.description.includes(event.target.value);
 		}));
-		console.log(typeof filtered);
 		constructDOM(filtered);
 	});
 
