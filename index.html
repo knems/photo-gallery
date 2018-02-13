@@ -5,9 +5,34 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	</head>
-	<body>
-		hello
+	<body id='body' class="container">
+		<nav>
+			<input class="search-box" type="text" placeholder="eg: summer, bales, ice" value="">
+		</nav>
+
+		<div id="content" class="content">
+		</div>
+
+		<div id="lightbox" class="lightbox">
+			<div class="container">
+
+				<div id="left" class="leftArrow arrow">
+					<img src="photos/icon.png" width="60px" height="45px">
+				</div>
+
+				<div id="lightboxImg" class="lightboxImg">
+				</div>
+
+				<div id="right" class="rightArrow arrow">
+					<img src="photos/icon.png" width="60px" height="45px">
+				</div>
+
+				<p id="textbox"></p>
+			</div>
+		</div>
+
 		<script src="js/main.js"></script>
 	</body>
 </html>
